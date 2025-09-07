@@ -1,4 +1,4 @@
-curl -X PUT http://localhost:3000/api/v1/user \
+curl -X PUT http://localhost:7880/api/v1/user \
 -H "Content-Type: application/json" \
 -d '{   
     "name": "Testin data",
