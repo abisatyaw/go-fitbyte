@@ -7,6 +7,14 @@ import (
 	"go-fitbyte/src/config"
 )
 
+// @title           Fitbyte API
+// @version         1.0
+// @description     This is a sample server for a fitness tracking application.
+
+// @securityDefinitions.apikey BearerAuth
+// @in header
+// @name Authorization
+
 func main() {
 	v := config.NewViper()
 	db := config.NewGorm(v)
@@ -17,7 +25,7 @@ func main() {
 	}
 
 	services := config.InitServices(db)
-	routes.SetupRoutes(app, v, services)
+	routes.SetupRoutes(app, v, db, services)
 
 	// Run server
 	port := v.GetString("server.port")

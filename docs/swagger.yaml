@@ -93,6 +93,9 @@ definitions:
     - WeightLBS
 info:
   contact: {}
+  description: This is a sample server for a fitness tracking application.
+  title: Fitbyte API
+  version: "1.0"
 paths:
   /api/v1/activity:
     get:
@@ -449,4 +452,9 @@ paths:
       summary: Update a profile
       tags:
       - Profile
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"
