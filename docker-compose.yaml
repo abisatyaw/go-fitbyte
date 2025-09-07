@@ -12,11 +12,9 @@ services:
       - postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
 
-  fiber:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: go-fitbyte-prod 
+  gojo-server:
+    image: us-west1-docker.pkg.dev/projectsprint-000001/ps-docker-repo/gojo:v1.0.0
+    container_name: gojo-server
     ports:
       - "7880:7880"
     environment:
@@ -35,8 +33,6 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
-    networks:
-      - appnet
 
-networks:
-  appnet:
+volumes:
+  postgres-data:
